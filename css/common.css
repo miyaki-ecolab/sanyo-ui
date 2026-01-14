@@ -1,0 +1,292 @@
+/* 軽量版リセットCSSはすでに適用済みと仮定 */
+
+/* 基本スタイル - 青を基調とした配色 */
+:root {
+    --primary-color: #1a5598; /* メインの青 */
+    --primary-light: #4a7dbc; /* 薄い青 */
+    --primary-dark: #0d3c75; /* 濃い青 */
+    --secondary-color: #e9f0f9; /* 非常に薄い青（背景用） */
+    --accent-color: #ff9e2c; /* オレンジ系アクセントカラー（青の補色） */
+    --text-color: #2c3e50; /* 濃い青灰色 */
+    --light-text: #f8f9fa; /* 白に近い色 */
+    --footer-color: #0d3c75; /* 濃い青 */
+    --container-width: 1200px;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ヘッダー - 上部のロゴと検索エリア */
+header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* キーワード検索フォーム */
+.search-form {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 150px;
+    max-width: none; /* 最大幅の制限を解除 */
+    position: relative;
+    margin: 0 1rem;
+}
+
+.search-form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.search-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(26, 85, 152, 0.2);
+}
+
+.search-form button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon {
+    font-style: normal;
+    font-size: 1rem;
+}
+
+/* ヘッダー内の補助的なナビゲーション */
+.header-sub-nav {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.header-sub-nav a {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 900px) {
+    header .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .search-form {
+        order: 3;
+        margin: 0.5rem 0;
+        flex-basis: 100%;
+    }
+
+    header h1 {
+        flex-basis: auto;
+        margin-right: auto;
+    }
+
+    .header-sub-nav {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-sub-nav {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .header-sub-nav a {
+        padding: 0.25rem;
+    }
+}
+
+/* メインメニューバー - ヘッダーの下に配置 */
+.menu-bar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: calc(3.5rem - 1px); /* ヘッダーの高さに合わせて調整 */
+    z-index: 99;
+}
+
+.menu-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+}
+
+nav.main-nav a {
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+nav.main-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* アクティブなメニュー項目 */
+nav.main-nav a.active {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* メインコンテンツ */
+main {
+    padding: 2rem 0;
+    min-height: calc(100vh - 12.5rem); /* ヘッダー、メニュー、フッターの高さを考慮 */
+    background-color: var(--secondary-color);
+}
+
+section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* フッター */
+footer {
+    background-color: var(--footer-color);
+    color: var(--light-text);
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+/* ボタンスタイル */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--light-text);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+}
+
+.btn-accent:hover {
+    background-color: #e68a1e;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* モバイルメニューボタン */
+    .menu-toggle {
+        display: block;
+        font-size: 1.25rem;
+        background: none;
+        border: none;
+        color: var(--light-text);
+        cursor: pointer;
+    }
+
+    nav.main-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        display: none; /* JSでトグル制御 */
+    }
+
+    nav.main-nav.open ul {
+        display: flex;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 0.5rem;
+    }
+}
