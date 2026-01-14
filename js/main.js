@@ -21,3 +21,96 @@ menuToggle.addEventListener('click', function() {
 // 初期化と画面サイズ変更時の処理
 window.addEventListener('load', checkScreenSize);
 window.addEventListener('resize', checkScreenSize);
+
+
+
+// タッチデバイス向けにポップアップ表示のサポートを強化
+document.addEventListener('DOMContentLoaded', function() {
+    const genreItems = document.querySelectorAll('.genre-list li');
+
+    genreItems.forEach(item => {
+        item.addEventListener('touchstart', function(e) {
+            // タッチ開始でポップアップの表示/非表示をトグル
+            const popup = this.querySelector('.genre-popup');
+
+            // 他のすべてのポップアップを非表示に
+            document.querySelectorAll('.genre-popup.touch-visible').forEach(el => {
+                if (el !== popup) {
+                    el.classList.remove('touch-visible');
+                }
+            });
+
+            // このポップアップを表示/非表示切り替え
+            if (popup) {
+                popup.classList.toggle('touch-visible');
+
+                if (popup.classList.contains('touch-visible')) {
+                    e.preventDefault(); // リンク遷移を防止（ポップアップ表示時のみ）
+                }
+            }
+        });
+    });
+
+    // ポップアップ以外の場所をタップしたら閉じる
+    document.addEventListener('touchstart', function(e) {
+        if (!e.target.closest('.genre-list li')) {
+            document.querySelectorAll('.genre-popup.touch-visible').forEach(el => {
+                el.classList.remove('touch-visible');
+            });
+        }
+    });
+});
+
+// タッチデバイス用のスタイル追加（JavaScript経由）
+const style = document.createElement('style');
+style.innerHTML = `
+  @media (pointer: coarse) {
+    .genre-popup {
+      transition: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .genre-popup.touch-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+`;
+document.head.appendChild(style);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 要素の取得
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const menuBar = document.querySelector('.menu-bar');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
+
+    // ハンバーガーメニューのクリックイベント
+    hamburgerMenu.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('active');
+        menuBar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
+
+    // オーバーレイのクリックイベント（メニューを閉じる）
+    overlay.addEventListener('click', function() {
+        hamburgerMenu.classList.remove('active');
+        menuBar.classList.remove('active');
+        overlay.classList.remove('active');
+        body.classList.remove('menu-open');
+    });
+
+    // ウィンドウサイズ変更時にモバイルメニューをリセット
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            hamburgerMenu.classList.remove('active');
+            menuBar.classList.remove('active');
+            overlay.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+    });
+});

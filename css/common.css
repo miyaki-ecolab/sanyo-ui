@@ -12,6 +12,31 @@
     --footer-color: #0d3c75; /* 濃い青 */
     --container-width: 1200px;
 }
+/* ページ全体のレイアウト構造 */
+html, body {
+    height: 100%; /* 高さを100%に設定 */
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 最小高さをビューポート高さに設定 */
+}
+/* メインコンテンツが伸縮するようにする */
+main {
+    flex: 1 0 auto; /* フレックスアイテムが拡大してスペースを埋めるように */
+    width: 100%;
+    /* padding-bottom: 2rem; フッターとの間隔を確保 */
+}
+/* フッター */
+footer {
+    flex-shrink: 0; /* フッターが縮まないようにする */
+    background-color: #f8f8f8;
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    width: 100%;
+}
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -34,6 +59,9 @@ a:hover {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* ヘッダー - 上部のロゴと検索エリア */
@@ -47,9 +75,6 @@ header {
 }
 
 header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: nowrap;
     gap: 1rem;
 }
@@ -183,41 +208,100 @@ header h1 {
     }
 }
 
+
 /* メインメニューバー - ヘッダーの下に配置 */
+/* メニューバー */
 .menu-bar {
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: calc(3.5rem - 1px); /* ヘッダーの高さに合わせて調整 */
-    z-index: 99;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0; /* 下部に境界線を追加 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
-.menu-bar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav.main-nav ul {
-    display: flex;
+.main-nav ul {
     list-style: none;
-    gap: 1.5rem;
-    padding: 0.75rem 0;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-nav.main-nav a {
+.main-nav li {
+    position: relative;
+}
+
+.main-nav a {
+    display: block;
+    padding: 0.75rem 1.2rem;
+    color: #555;
+    text-decoration: none;
     font-weight: 500;
-    color: var(--light-text);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    position: relative; /* アンダーラインの基準位置として設定 */
 }
 
-nav.main-nav a:hover {
-    color: var(--accent-color);
+/* ホバー時のアンダーラインエフェクト - 下から上へ */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* 幅は常に100% */
+    height: 0; /* 初期状態では高さ0 */
+    background-color: var(--primary-color); /* 青色のライン */
+    transition: height 0.25s ease; /* 高さのアニメーション */
 }
 
-/* アクティブなメニュー項目 */
-nav.main-nav a.active {
-    color: var(--accent-color);
-    font-weight: 600;
+.main-nav a:hover::after {
+    height: 3px; /* ホバー時に高さ3pxに */
+}
+
+/* アクティブ状態 - 文字色を薄く */
+.main-nav a.active {
+    color: #999; /* 文字色を薄いグレーに */
+}
+
+/* メニュートグルボタン（モバイル表示用） */
+.menu-toggle {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 3px;
+    display: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav a {
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    /* モバイル表示時のアンダーラインエフェクト調整 */
+    .main-nav a::after {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .menu-bar.mobile-open .main-nav {
+        display: block;
+    }
 }
 
 /* メインコンテンツエリア */
@@ -228,7 +312,8 @@ main {
 
 .main-content-wrap {
     display: grid;
-    grid-template-columns: 1fr 6fr; /* サイドバー:コンテンツ = 1:6 の比率 */
+    align-items: start;
+    grid-template-columns: 250px 1fr; /* サイドバー:コンテンツ = 1:6 の比率 */
     gap: 1.5rem;
 }
 
@@ -254,9 +339,9 @@ main {
     margin: 0;
 }
 
-.genre-list li {
-    margin-bottom: 0.25rem; /* 項目間のマージンを縮小 */
-}
+/*.genre-list li {
+    margin-bottom: 0.25rem; !* 項目間のマージンを縮小 *!
+}*/
 
 .genre-list a {
     display: block;
@@ -283,6 +368,105 @@ main {
     height: 1px;
     background-color: #eee;
     margin: 0.5rem 0; /* マージンを縮小 */
+}
+
+/* ジャンルバーのポップアップスタイル */
+.genre-list li {
+    margin-bottom: 0.25rem;
+    position: relative; /* 位置基準を設定 */
+}
+
+.genre-popup {
+    position: absolute;
+    left: calc(100% + 5px); /* ジャンルバーの右側に配置 */
+    top: -5px; /* 少し上に配置して見やすく */
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    width: 180px;
+    padding: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
+    pointer-events: none; /* 初期状態ではポインター操作を無効に */
+}
+
+/* ポップアップの三角形の部分 */
+.genre-popup::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid white;
+}
+
+.popup-title {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #eee;
+}
+
+.popup-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-list li {
+    margin-bottom: 0.15rem;
+}
+
+.popup-list a {
+    display: block;
+    padding: 0.25rem 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    border-radius: 2px;
+    transition: background-color 0.15s;
+}
+
+.popup-list a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* ホバー時のポップアップ表示 */
+.genre-list li:hover .genre-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* ホバー時はポインター操作を有効に */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 900px) {
+    .genre-popup {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* モバイル表示時はポップアップの位置を調整 */
+    .genre-popup {
+        position: absolute;
+        left: 120px; /* 固定位置に変更 */
+        width: 150px;
+    }
+}
+
+/* タッチデバイス向け */
+@media (pointer: coarse) {
+    /* タッチデバイスでは少し表示時間を長くする */
+    .genre-list li:hover .genre-popup {
+        transition-delay: 0.1s;
+    }
 }
 
 /* メインコンテンツ */
