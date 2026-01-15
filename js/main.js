@@ -79,38 +79,3 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // 要素の取得
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const menuBar = document.querySelector('.menu-bar');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    const body = document.body;
-
-    // ハンバーガーメニューのクリックイベント
-    hamburgerMenu.addEventListener('click', function() {
-        hamburgerMenu.classList.toggle('active');
-        menuBar.classList.toggle('active');
-        overlay.classList.toggle('active');
-        body.classList.toggle('menu-open');
-    });
-
-    // オーバーレイのクリックイベント（メニューを閉じる）
-    overlay.addEventListener('click', function() {
-        hamburgerMenu.classList.remove('active');
-        menuBar.classList.remove('active');
-        overlay.classList.remove('active');
-        body.classList.remove('menu-open');
-    });
-
-    // ウィンドウサイズ変更時にモバイルメニューをリセット
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 900) {
-            hamburgerMenu.classList.remove('active');
-            menuBar.classList.remove('active');
-            overlay.classList.remove('active');
-            body.classList.remove('menu-open');
-        }
-    });
-});

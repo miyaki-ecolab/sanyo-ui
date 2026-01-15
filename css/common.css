@@ -484,12 +484,17 @@ main {
     border-bottom: 2px solid var(--primary-light);
     padding-bottom: 0.5rem;
 }
-
+.content-section{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 1rem;
+}
 .content-box {
     background-color: var(--secondary-color);
     border-radius: 4px;
     padding: 1.5rem;
     margin-top: 1.5rem;
+    width: calc(32% - 1rem);
 }
 
 .content-box h3 {
