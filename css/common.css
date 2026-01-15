@@ -1,10 +1,14 @@
 :root {
-    --primary-color: #1a5598; /* メインの青 */
-    --primary-light: #4a7dbc; /* 薄い青 */
-    --primary-dark: #0d3c75; /* 濃い青 */
+    --primary-color: #003f9a; /* メインの青 */
+    /*--primary-light: #4a7dbc; !* 薄い青 *!*/
+    --primary-light: #406fb3; /* 薄い青 */
+    /*--primary-dark: #0d3c75; !* 濃い青 *!*/
+    --primary-dark: #002f74; /* 濃い青 */
     --secondary-color: #e9f0f9; /* 非常に薄い青（背景用） */
     --accent-color: #ff9e2c; /* オレンジ系アクセントカラー（青の補色） */
-    --text-color: #2c3e50; /* 濃い青灰色 */
+    /*--text-color: #2c3e50; !* 濃い青灰色 *!*/
+    --text-color: #525860; /* 濃い青灰色 */
+    --light-gray: #f4f5f6; /*明るい灰色*/
     --light-text: #f8f9fa; /* 白に近い色 */
     --footer-color: #0d3c75; /* 濃い青 */
     --container-width: 1200px;
@@ -28,6 +32,9 @@ body {
 main {
     flex: 1 0 auto; /* フレックスアイテムが拡大してスペースを埋めるように */
     width: 100%;
+    padding: 2rem 0;
+    /*background-color: var(--secondary-color);*/
+    background-color: var(--light-gray);
 }
 footer {
     flex-shrink: 0; /* フッター縮まないように */
@@ -123,6 +130,7 @@ a:hover {
     font-style: normal;
     font-size: 1rem;
 }
+
 
 /* 買い物かごのスタイル追加 */
 .cart-link {
@@ -284,20 +292,17 @@ a:hover {
     padding: 0;
     margin: 0;
 }
-
 .popup-list li {
     margin: 0.25rem 0;
 }
-
 .popup-list a {
     color: #1a5598;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s ease;
 }
-
 .popup-list a:hover {
-    color: #0d3c75;
+    color: var(--light-text);
 }
 
 
@@ -352,7 +357,8 @@ a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(to bottom right, #1a5598, #0d3c75); /* 背景色 グラデーション */
+    /*background: linear-gradient(to bottom right, #1a5598, #0d3c75); !* 背景色 グラデーション *!*/
+    background-color: var(--primary-color);
     color: #fff; /* テキストの色は白 */
     height: 100vh;
     padding: 2rem;
@@ -385,8 +391,10 @@ a:hover {
     padding: 0.75rem 1.5rem;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #ff9e2c; /* オレンジ色（アクセントカラー） */
+    /*background-color: #ff9e2c; !* オレンジ色（アクセントカラー） *!*/
+    background-color: var(--light-gray); /* ホバー時の色 */
+    border: 2px solid var(--primary-color);
+    color: var(--primary-dark);
     border-radius: 5px;
     text-decoration: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンの影 */
@@ -395,9 +403,9 @@ a:hover {
 
 /* ホバースタイル */
 .simulation-button:hover {
-    background-color: #e68a1e; /* ホバー時の色 */
-    transform: translateY(-3px); /* ホバー時にわずかに上に動く */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* ホバー時の影を強調 */
+    background-color: var(--primary-color);
+    border: var(--light-text) 2px solid;
+    color: var(--light-text);
 }
 
 /* レスポンシブ対応 */
@@ -421,10 +429,7 @@ a:hover {
 }
 
 /* メインコンテンツエリア */
-main {
-    padding: 2rem 0;
-    background-color: var(--secondary-color);
-}
+
 
 .main-content-wrap {
     display: grid;
@@ -435,7 +440,7 @@ main {
 
 /* サイドバー（ジャンルバー） */
 .genre-sidebar {
-    /*background-color: #fff;*/
+    background-color: var(--light-gray);
     border-radius: 5px;
     /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
     padding: 0.75rem 0.5rem; /* パディングを縮小 */
@@ -454,14 +459,9 @@ main {
     padding: 0;
     margin: 0;
 }
-
-/*.genre-list li {
-    margin-bottom: 0.25rem; !* 項目間のマージンを縮小 *!
-}*/
-
 .genre-list a {
     display: block;
-    padding: 0.35rem 0.5rem; /* パディングを縮小 */
+    padding: 0.35rem 0.5rem 0.35rem 0; /* パディングを縮小 */
     color: var(--text-color);
     border-radius: 3px;
     transition: all 0.2s ease;
@@ -470,15 +470,9 @@ main {
 }
 
 .genre-list a:hover {
-    background-color: var(--primary-light);
-    color: var(--primary-color);
-}
-
-/*.genre-list a.active {
     background-color: var(--primary-color);
-    color: #fff;
-    font-weight: 500;
-}*/
+    color: var(--light-text);
+}
 
 .genre-divider {
     height: 1px;
@@ -494,7 +488,7 @@ main {
 
 .genre-popup {
     position: absolute;
-    left: calc(100% + 5px); /* ジャンルバーの右側に配置 */
+    left: calc(100% - 3px); /* ジャンルバーの右側に配置 */
     top: -5px; /* 少し上に配置して見やすく */
     background-color: white;
     border-radius: 4px;
@@ -550,8 +544,9 @@ main {
 }
 
 .popup-list a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    /*color: var(--primary-color);*/
 }
 
 /* ホバー時のポップアップ表示 */
@@ -603,7 +598,7 @@ main {
 .products-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     gap: 0.3rem;
 }
 
@@ -650,7 +645,8 @@ main {
 /* 個別カテゴリアイテム */
 .category-item {
     display: inline-block;
-    background-color: #f0f8ff;
+    /*background-color: #f0f8ff;*/
+    background-color: var(--light-gray);
     border: 1px solid #1a5598;
     border-radius: 5px;
     padding: 0.3rem 0.5rem;
@@ -666,7 +662,6 @@ main {
     color: #fff;
     cursor: pointer;
 }
-
 
 /* カートに入れるボタンのスタイル */
 .add-to-cart-button {
@@ -713,7 +708,7 @@ main {
     gap: 1rem;
 }
 .content-box {
-    background-color: var(--secondary-color);
+    background-color: var(--light-gray);
     border-radius: 4px;
     padding: 1.5rem;
     margin-top: 1.5rem;

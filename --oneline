@@ -1,0 +1,47 @@
+[33mcommit d07aac5d38bd9a0e27d855afebc71e047da944f3[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Thu Jan 15 14:51:46 2026 +0900
+
+    商品表示
+
+[33mcommit 18de23fceacaf7bb5a814bc01b953c0b962c3410[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Thu Jan 15 13:19:22 2026 +0900
+
+    メニューバーにジャンル追加
+
+[33mcommit 6eedcfe7ec9ad8bb37c55eaeea4379000420c5d2[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Thu Jan 15 10:19:26 2026 +0900
+
+    topのファーストビュー
+
+[33mcommit 8aa73f1557431f73de855c18d924ae43b234f49b[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Thu Jan 15 09:48:35 2026 +0900
+
+    サイドバー候補２
+
+[33mcommit 17bc21c9beb7091d270628481445493a0060ed8e[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Thu Jan 15 09:33:10 2026 +0900
+
+    サイドバー候補１
+
+[33mcommit 022da62c53ab8e5afd1b32591357e7113d34fb55[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Wed Jan 14 13:15:17 2026 +0900
+
+    サイドバーとコンテンツの調整
+
+[33mcommit 8a22be7f6f6ea52ab3af840b68bbd5a76633b1ee[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Wed Jan 14 11:36:48 2026 +0900
+
+    サイドバー追加
+
+[33mcommit c1783e08ccd03f987808677cc6e4a6971ae87d78[m
+Author: miyaki <miyaki@eco-lab.co.jp>
+Date:   Wed Jan 14 10:54:33 2026 +0900
+
+    initial commit
