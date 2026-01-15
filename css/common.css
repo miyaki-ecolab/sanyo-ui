@@ -319,9 +319,9 @@ main {
 
 /* サイドバー（ジャンルバー） */
 .genre-sidebar {
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
     padding: 0.75rem 0.5rem; /* パディングを縮小 */
 }
 
@@ -354,19 +354,19 @@ main {
 }
 
 .genre-list a:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-light);
     color: var(--primary-color);
 }
 
-.genre-list a.active {
+/*.genre-list a.active {
     background-color: var(--primary-color);
     color: #fff;
     font-weight: 500;
-}
+}*/
 
 .genre-divider {
     height: 1px;
-    background-color: #eee;
+    background-color: #9b9ea6;
     margin: 0.5rem 0; /* マージンを縮小 */
 }
 
