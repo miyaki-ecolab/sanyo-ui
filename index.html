@@ -10,11 +10,11 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
-<!-- ヘッダー部分 - ロゴとサイト名 -->
-<header>
+<!-- ヘッダー - ロゴ,サイト名 -->
+<header class="header">
   <div class="container">
-    <h1>sanyo.ec</h1>
-    <!-- キーワード検索フォーム -->
+    <h1><a href="">sanyo.ec</a></h1>
+    <!-- 検索フォーム -->
     <form class="search-form" action="#" method="get">
       <input type="text" name="keyword" placeholder="キーワード検索">
       <button type="submit"><i class="search-icon">🔍</i></button>
@@ -22,7 +22,7 @@
 
     <div class="header-sub-nav">
       <a href="#">ログイン</a>
-      <a href="#" class="cart-link"><i class="cart-icon">🛒</i> 買い物かご</a>
+      <a href="#" class="cart-link"><i class="cart-icon">🛒</i></a>
     </div>
   </div>
 </header>
@@ -30,29 +30,63 @@
 <!-- メインメニューバー - ヘッダーの下に配置 -->
 <div class="menu-bar">
   <div class="container">
-    <nav class="main-nav">
+    <!--<nav class="main-nav">
       <ul>
         <li><a href="#" class="active">ホーム</a></li>
-        <li><a href="#">製品情報</a></li>
-        <li><a href="#">サービス</a></li>
-        <li><a href="#">会社案内</a></li>
-        <li><a href="#">採用情報</a></li>
-        <li><a href="#">ニュース</a></li>
+        <li><a href="#">オーダー</a></li>
+        <li><a href="#">お得な規格品</a></li>
+        <li><a href="#">利用ガイド</a></li>
+        <li><a href="#">よくある質問</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        <li><a href="#">ジャンル</a></li>
+      </ul>
+    </nav>-->
+    <nav class="main-nav">
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="#" class="active">ホーム</a>
+        </li>
+        <li class="menu-item">
+          <a href="#">お得な規格品</a>
+        </li>
+        <li class="menu-item">
+          <a href="#">利用ガイド</a>
+        </li>
+        <li class="menu-item">
+          <a href="#">よくある質問</a>
+        </li>
+        <li class="menu-item">
+          <a href="#">お問い合わせ</a>
+        </li>
+        <li class="menu-item">
+          <a href="#">ジャンル</a>
+          <div class="menu-popup">
+            <div class="popup-title">ジャンル一覧</div>
+            <ul class="popup-list">
+              <li><a href="#">オーダーメイド</a></li>
+              <li><a href="#">ビニールハウス</a></li>
+              <li><a href="#">鉄骨ハウス</a></li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </nav>
     <button class="menu-toggle" style="display:none;">メニュー</button>
   </div>
 </div>
+
+<!--ファーストビュー-->
 <div class="first-view">
   <div class="first-view-content">
-    <h1>御社だけのオリジナル制作</h1>
-    <p>
+    <h1 class="first-view-title">御社だけのオリジナル制作</h1>
+    <p class="first-view-description">
       形状や材質、全てカスタマイズ可能です。<br>
       まずは見積もりを実施してください。
     </p>
-    <a href="#estimate-simulation" class="simulation-button">見積もりシミュレーション</a>
+    <a href="#estimate-simulation" class="simulation-button">見積もり開始</a>
   </div>
 </div>
+
 <!-- メインコンテンツ部分 -->
 <main>
   <div class="container main-content-wrap">
@@ -111,6 +145,43 @@
 
     <!-- メインコンテンツエリア -->
     <section class="main-article">
+
+      <div class="recommended-products">
+        <h2>おすすめの商品</h2>
+        <div class="products-container">
+          <div class="product-card">
+            <img src="img/product-image1.png" alt="商品画像1" class="product-image">
+            <h3 class="product-name">商品名1</h3>
+            <p class="product-category">カテゴリー1</p>
+            <button class="add-to-cart-button">カートに入れる</button>
+          </div>
+          <div class="product-card">
+            <img src="img/product-image1.png" alt="商品画像2" class="product-image">
+            <h3 class="product-name">商品名2</h3>
+            <p class="product-category">カテゴリー2</p>
+            <button class="add-to-cart-button">カートに入れる</button>
+          </div>
+          <div class="product-card">
+            <img src="img/product-image1.png" alt="商品画像3" class="product-image">
+            <h3 class="product-name">商品名3</h3>
+            <p class="product-category">カテゴリー3</p>
+            <button class="add-to-cart-button">カートに入れる</button>
+          </div>
+          <div class="product-card">
+            <img src="img/product-image1.png" alt="商品画像4" class="product-image">
+            <h3 class="product-name">商品名4</h3>
+            <p class="product-category">カテゴリー4</p>
+            <button class="add-to-cart-button">カートに入れる</button>
+          </div>
+          <div class="product-card">
+            <img src="img/product-image1.png" alt="商品画像5" class="product-image">
+            <h3 class="product-name">商品名5</h3>
+            <p class="product-category">カテゴリー5</p>
+            <button class="add-to-cart-button">カートに入れる</button>
+          </div>
+        </div>
+      </div>
+
       <h2>メインコンテンツ</h2>
       <p>ここにメインコンテンツが入ります。</p>
       <div class="content-section">

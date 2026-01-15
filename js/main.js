@@ -12,7 +12,6 @@ function checkScreenSize() {
     mainNav.classList.remove('open');
     }
 }
-
 // メニュートグル機能
 menuToggle.addEventListener('click', function() {
     mainNav.classList.toggle('open');
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     el.classList.remove('touch-visible');
                 }
             });
-
             // このポップアップを表示/非表示切り替え
             if (popup) {
                 popup.classList.toggle('touch-visible');
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
     // ポップアップ以外の場所をタップしたら閉じる
     document.addEventListener('touchstart', function(e) {
         if (!e.target.closest('.genre-list li')) {
@@ -79,3 +76,17 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+// ヘッダーのスクロール監視
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector(".header"); // ターゲットのヘッダー要素
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 0) {
+            header.classList.add("scrolled"); // スクロール時にクラスを追加
+        } else {
+            header.classList.remove("scrolled"); // 元に戻す
+        }
+    });
+});
+
