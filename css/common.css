@@ -586,12 +586,14 @@ main {
 }
 
 /* おすすめ商品のセクション */
-.recommended-products {
+.recommended-products,
+.main-products{
     margin: 2rem 0;
-    text-align: center;
+    text-align: start;
 }
 
-.recommended-products h2 {
+.recommended-products h2,
+.main-products h2{
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #333;
@@ -602,7 +604,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 0.3rem;
 }
 
 /* 商品カードのスタイル */
@@ -610,19 +612,12 @@ main {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    padding: 0.4rem;
     width: 200px;
-    text-align: center;
+    text-align: start;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);*/
 }
-
-/* 商品カードのホバー効果 */
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
 /* 商品画像 */
 .product-image {
     width: 100%;
@@ -630,10 +625,13 @@ main {
     border-radius: 5px;
     margin-bottom: 0.5rem;
 }
+.product-image:hover{
+    opacity: 0.8;
+}
 
 /* 商品名 */
 .product-name {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 0.5rem;
@@ -641,10 +639,34 @@ main {
 
 /* カテゴリーテキスト */
 .product-category {
-    font-size: 0.9rem;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: start;
+    gap: 0.5rem;
+    font-size: 0.8rem;
     color: #666;
     margin-bottom: 0.75rem;
 }
+/* 個別カテゴリアイテム */
+.category-item {
+    display: inline-block;
+    background-color: #f0f8ff;
+    border: 1px solid #1a5598;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+    color: #1a5598;
+    font-weight: bold;
+    white-space: nowrap; /* テキストの折り返しを防止 */
+}
+
+/* カテゴリアイテムのホバー効果 */
+.category-item:hover {
+    background-color: #1a5598;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 /* カートに入れるボタンのスタイル */
 .add-to-cart-button {
@@ -660,7 +682,6 @@ main {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 /* ボタンのホバー効果 */
 .add-to-cart-button:hover {
     background-color: #144472; /* ホバー時に色を濃くする */
