@@ -697,10 +697,9 @@ a:hover {
 
 .main-article h2 {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
     color: var(--primary-dark);
-    border-bottom: 2px solid var(--primary-light);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
 }
 .content-section{
     display:flex;
