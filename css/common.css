@@ -304,6 +304,80 @@ header h1 {
     }
 }
 
+/* ファーストビュー全体 */
+.first-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom right, #1a5598, #0d3c75); /* 背景色 グラデーション */
+    color: #fff; /* テキストの色は白 */
+    height: 100vh;
+    padding: 2rem;
+}
+
+/* コンテンツの中央揃え */
+.first-view-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 見出しのスタイル */
+.first-view-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* テキストのスタイル */
+.first-view-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* 「見積もりシミュレーション」ボタン */
+.simulation-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff9e2c; /* オレンジ色（アクセントカラー） */
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンの影 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* ホバースタイル */
+.simulation-button:hover {
+    background-color: #e68a1e; /* ホバー時の色 */
+    transform: translateY(-3px); /* ホバー時にわずかに上に動く */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* ホバー時の影を強調 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .first-view {
+        padding: 1.5rem;
+    }
+
+    .first-view-content h1 {
+        font-size: 2rem;
+    }
+
+    .first-view-content p {
+        font-size: 1rem;
+    }
+
+    .simulation-button {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
 /* メインコンテンツエリア */
 main {
     padding: 2rem 0;
