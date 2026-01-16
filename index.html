@@ -17,12 +17,29 @@
     <!-- 検索フォーム -->
     <form class="search-form" action="#" method="get">
       <input type="text" name="keyword" placeholder="キーワード検索">
-      <button type="submit"><i class="search-icon">🔍</i></button>
+      <button type="submit" class="search-button">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
     </form>
-
     <div class="header-sub-nav">
-      <a href="#">ログイン</a><!--色濃くする-->
-      <a href="#" class="cart-link"><i class="cart-icon">🛒</i></a>
+      <a href="#" class="log-in">ログイン</a>
+      <a href="#" class="cart-link">
+        <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </a>
+      <a href="" class="all-menu">
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+      </a>
     </div>
   </div>
 </header>
@@ -60,7 +77,6 @@
         </li>
       </ul>
     </nav>
-    <button class="menu-toggle" style="display:none;">メニュー</button>
   </div>
 </div>
 
@@ -79,16 +95,16 @@
 <!-- メインコンテンツ部分 -->
 <main>
   <div class="container main-content-wrap">
-    <!-- サイドバー（カテゴリーバー） -->
-    <aside class="category-sidebar">
+    <!-- サイドバー（カテゴリーバー/ジャンルバー） -->
+    <aside class="genre-sidebar">
 
       <!--カテゴリーセクション-->
       <section class="sidebar-section category-section">
         <h3 class="section-title">カテゴリー</h3>
-        <ul class="category-list">
-          <li class="category-item active">
+        <ul class="genre-list">
+          <li class="genre-item active">
             <a href="#">オーダーメイド</a>
-            <div class="category-popup">
+            <div class="genre-popup">
               <div class="popup-title">オーダーメイドのカテゴリー</div>
               <ul class="popup-list">
                 <li><a href="#">サブカテゴリーA</a></li>
@@ -98,9 +114,9 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li class="genre-item active">
             <a href="#">骨組み</a>
-            <div class="category-popup">
+            <div class="genre-popup">
               <div class="popup-title">骨組みのカテゴリー</div>
               <ul class="popup-list">
                 <li><a href="#">パイプハウス</a></li>
@@ -108,9 +124,9 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li class="genre-item active">
             <a href="#">屋根形状</a>
-            <div class="category-popup">
+            <div class="genre-popup">
               <div class="popup-title">屋根形状のカテゴリー</div>
               <ul class="popup-list">
                 <li><a href="#">丸型</a></li>
@@ -119,9 +135,9 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li class="genre-item active">
             <a href="#">被覆資材(フィルム)</a>
-            <div class="category-popup">
+            <div class="genre-popup">
               <div class="popup-title">被覆資材(フィルム)のカテゴリー</div>
               <ul class="popup-list">
                 <li><a href="#">農ビ(農業用塩化ビニルフィルム)</a></li>
@@ -130,9 +146,9 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li class="genre-item active">
             <a href="#">規模・構造</a>
-            <div class="category-popup">
+            <div class="genre-popup">
               <div class="popup-title">規模・構造のカテゴリー</div>
               <ul class="popup-list">
                 <li><a href="#">小型</a></li>
@@ -149,10 +165,10 @@
       <!--お知らせセクション-->
       <section class="sidebar-section category-section">
         <h3 class="section-title">お知らせ</h3>
-        <ul class="category-list">
-          <li>
+        <ul class="genre-list">
+          <li class="genre-item active">
             <a href="#">特集1</a>
-            <div class="category-popup">
+            <div class="genre-popup">
               <div class="popup-title">特集1の内容</div>
               <ul class="popup-list">
                 <li><a href="#">特集内容Q</a></li>
@@ -162,7 +178,7 @@
           </li>
         </ul>
       </section>
-      <!--<li class="category-divider"></li>-->
+      <!--<li class="genre-divider"></li>-->
     </aside>
 
     <!-- メインコンテンツエリア -->
