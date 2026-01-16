@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", function () {
         if (window.scrollY > 0) {
+            console.log('scrolled')
             header.classList.add("scrolled"); // スクロール時にクラスを追加
         } else {
             header.classList.remove("scrolled"); // 元に戻す

@@ -65,17 +65,19 @@ a:hover {
 /* ーーーーヘッダー - 上部のロゴと検索エリア ーーーー*/
 .header {
     background-color: #fff;
-    padding: 1rem 0;
+    /*padding: 0.8rem 0;*/
     position: sticky;
     top: 0;
     z-index: 100;
+    height: 100%;
 }
 .header.scrolled {
-    box-shadow: 0 6px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.1);
 }
 .header .container {
     flex-wrap: nowrap;
     gap: 1rem;
+    height:100%;
 }
 .header h1 {
     font-size: 1.5rem;
@@ -88,23 +90,32 @@ a:hover {
 /* ヘッダー内の補助的なナビゲーション */
 .header-sub-nav {
     display: flex;
-    gap: 1rem;
     flex-shrink: 0;
     white-space: nowrap;
+    height: 100%;
 }
 .header-sub-nav a {
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--primary-color);
+    height:100%;
+    width:64px;
+}
+.header-sub-nav a:hover {
+    background-color: var(--secondary-color);
 }
 /*ログインの文字*/
-.log-in{
+.header-sub-nav .log-in{
     color: var(--primary-color);
+    padding:0 0.5rem;
+    width:80px;
+    text-align: center;
 }
 /* 買い物かごのスタイル追加 */
 .cart-link {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.3rem;
     font-weight: 500;
 }
@@ -139,11 +150,11 @@ a:hover {
 /* キーワード検索フォーム */
 .search-form {
     display: flex;
+    margin: 0.8rem 0;
     flex: 1 1 auto;
     min-width: 150px;
     max-width: none; /* 最大幅の制限を解除 */
     position: relative;
-    margin: 0 1rem;
 }
 .search-form input[type="text"] {
     width: 100%;
@@ -189,7 +200,7 @@ a:hover {
         flex-direction: column;
         gap: 0.5rem;
         padding: 0.5rem 0;
-        display: none; /* JSでトグル制御 */
+        display: none;
     }
     nav.main-nav.open ul {
         display: flex;
@@ -220,9 +231,6 @@ a:hover {
     .header-sub-nav {
         gap: 0.5rem;
         font-size: 0.8rem;
-    }
-    .header-sub-nav a {
-        padding: 0.25rem;
     }
 }
 @media (max-width: 480px) {
@@ -732,8 +740,8 @@ a:hover {
     background-color: var(--light-gray);
     border-radius: 4px;
     padding: 1.5rem;
-    margin-top: 1.5rem;
-    width: calc(32% - 1rem);
+    width: 260px;
+    /*width: calc(32% - 1rem);*/
 }
 
 .content-box h3 {
@@ -768,27 +776,4 @@ footer {
     text-align: center;
 }
 
-/* ボタンスタイル */
-.btn {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    border-radius: 4px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--primary-dark);
-    color: var(--light-text);
-}
-
-.btn-accent {
-    background-color: var(--accent-color);
-}
-
-.btn-accent:hover {
-    background-color: #e68a1e;
-}
 
