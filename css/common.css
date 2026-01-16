@@ -11,7 +11,7 @@
     --light-gray: #f4f5f6; /*明るい灰色*/
     --light-text: #f8f9fa; /* 白に近い色 */
     --footer-color: #0d3c75; /* 濃い青 */
-    --container-width: 1200px;
+    --container-width: 1400px;
 }
 
 /* ページ全体のレイアウト構造 */
@@ -451,13 +451,13 @@ a:hover {
     color: var(--primary-dark);
     margin-bottom: 0.5rem; /* 下マージン縮小 */
     padding-bottom: 0.35rem;
-    border-bottom: 1px solid #eee;
 }
 
 .genre-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1rem 0;
+    border-bottom: 1px solid #ced3d9;
 }
 .genre-list a {
     display: block;
