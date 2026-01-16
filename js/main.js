@@ -12,10 +12,10 @@ function checkScreenSize() {
     mainNav.classList.remove('open');
     }
 }
-// メニュートグル機能
+/*// メニュートグル機能
 menuToggle.addEventListener('click', function() {
     mainNav.classList.toggle('open');
-});
+});*/
 
 // 初期化と画面サイズ変更時の処理
 window.addEventListener('load', checkScreenSize);
