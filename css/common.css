@@ -626,7 +626,7 @@ a:hover {
 
 /* 商品名 */
 .product-name {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 0.5rem;
@@ -645,12 +645,10 @@ a:hover {
 /* 個別カテゴリアイテム */
 .category-item {
     display: inline-block;
-    /*background-color: #f0f8ff;*/
     background-color: var(--light-gray);
     border: 1px solid #1a5598;
-    border-radius: 5px;
-    padding: 0.3rem 0.5rem;
-    font-size: 0.85rem;
+    padding: 0.1rem 0.2rem;
+    font-size: 0.75rem;
     color: #1a5598;
     font-weight: bold;
     white-space: nowrap; /* テキストの折り返しを防止 */
