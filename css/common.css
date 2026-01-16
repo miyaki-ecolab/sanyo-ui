@@ -439,26 +439,26 @@ a:hover {
 }
 
 /* サイドバー（ジャンルバー） */
-.genre-sidebar {
+.category-sidebar {
     background-color: var(--light-gray);
     border-radius: 5px;
     /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
     padding: 0.75rem 0.5rem; /* パディングを縮小 */
 }
-.genre-sidebar .section-title {
+.category-sidebar .section-title {
     font-size: 1rem; /* 見出しを小さく */
     color: var(--primary-dark);
     margin-bottom: 0.5rem; /* 下マージン縮小 */
     padding-bottom: 0.35rem;
 }
 
-.genre-list {
+.category-list {
     list-style: none;
     padding: 0;
     margin: 1rem 0;
     border-bottom: 1px solid #ced3d9;
 }
-.genre-list a {
+.category-list a {
     display: block;
     padding: 0.35rem 0.5rem 0.35rem 0; /* パディングを縮小 */
     color: var(--text-color);
@@ -468,23 +468,23 @@ a:hover {
     line-height: 1.2; /* 行間を詰める */
 }
 
-.genre-list a:hover {
+.category-list a:hover {
     background-color: var(--primary-color);
     color: var(--light-text);
 }
 
-.genre-divider {
+.category-divider {
     height: 1px;
     background-color: #9b9ea6;
 }
 
 /* ジャンルバーのポップアップスタイル */
-.genre-list li {
+.category-list li {
     margin-bottom: 0.25rem;
     position: relative; /* 位置基準を設定 */
 }
 
-.genre-popup {
+.category-popup {
     position: absolute;
     left: calc(100% - 3px); /* ジャンルバーの右側に配置 */
     top: -5px; /* 少し上に配置して見やすく */
@@ -501,7 +501,7 @@ a:hover {
 }
 
 /* ポップアップの三角形の部分 */
-.genre-popup::before {
+.category-popup::before {
     content: "";
     position: absolute;
     left: -6px;
@@ -548,7 +548,7 @@ a:hover {
 }
 
 /* ホバー時のポップアップ表示 */
-.genre-list li:hover .genre-popup {
+.category-list li:hover .category-popup {
     opacity: 1;
     visibility: visible;
     pointer-events: auto; /* ホバー時はポインター操作を有効に */
@@ -556,14 +556,14 @@ a:hover {
 
 /* レスポンシブ対応 */
 @media (max-width: 900px) {
-    .genre-popup {
+    .category-popup {
         width: 150px;
     }
 }
 
 @media (max-width: 768px) {
     /* モバイル表示時はポップアップの位置を調整 */
-    .genre-popup {
+    .category-popup {
         position: absolute;
         left: 120px; /* 固定位置に変更 */
         width: 150px;
@@ -573,7 +573,7 @@ a:hover {
 /* タッチデバイス向け */
 @media (pointer: coarse) {
     /* タッチデバイスでは少し表示時間を長くする */
-    .genre-list li:hover .genre-popup {
+    .category-list li:hover .category-popup {
         transition-delay: 0.1s;
     }
 }
@@ -728,7 +728,7 @@ a:hover {
         grid-template-columns: 1fr; /* モバイルでは縦並びに */
     }
 
-    .genre-sidebar {
+    .category-sidebar {
         margin-bottom: 1rem;
     }
 }
