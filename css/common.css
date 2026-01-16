@@ -11,7 +11,7 @@
     --light-gray: #f4f5f6; /*明るい灰色*/
     --light-text: #f8f9fa; /* 白に近い色 */
     --footer-color: #0d3c75; /* 濃い青 */
-    --container-width: 1400px;
+    --container-width: 1200px;
 }
 
 /* ページ全体のレイアウト構造 */
@@ -85,7 +85,57 @@ a:hover {
     flex-shrink: 0;
     white-space: nowrap;
 }
-
+/* ヘッダー内の補助的なナビゲーション */
+.header-sub-nav {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+.header-sub-nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+/*ログインの文字*/
+.log-in{
+    color: var(--primary-color);
+}
+/* 買い物かごのスタイル追加 */
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+}
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary-color); /* 線の色 */
+    transition: stroke 0.3s;
+}
+/* 買い物かごにホバーエフェクト追加 */
+.cart-link:hover {
+    opacity: 0.85;
+}
+/*メニューハンバーガー*/
+.all-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color); /* 初期の色 */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.all-menu:hover .menu-icon {
+    stroke: #0073e6; /* ホバー時の色 */
+}
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor; /* 線の色を現在のテキスト色に */
+    transition: stroke 0.3s;
+}
 /* キーワード検索フォーム */
 .search-form {
     display: flex;
@@ -95,7 +145,6 @@ a:hover {
     position: relative;
     margin: 0 1rem;
 }
-
 .search-form input[type="text"] {
     width: 100%;
     padding: 0.5rem 2.5rem 0.5rem 0.75rem;
@@ -104,13 +153,11 @@ a:hover {
     font-size: 0.9rem;
     transition: border-color 0.3s;
 }
-
 .search-form input[type="text"]:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(26, 85, 152, 0.2);
 }
-
 .search-form button {
     position: absolute;
     right: 0;
@@ -125,71 +172,45 @@ a:hover {
     align-items: center;
     justify-content: center;
 }
-
 .search-icon {
-    font-style: normal;
-    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    stroke: var(--primary-color); /* 線の色 */
+    transition: stroke 0.3s;
 }
 
-
-/* 買い物かごのスタイル追加 */
-.cart-link {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-weight: 500;
-}
-
-.cart-icon {
-    font-style: normal;
-    font-size: 1.1rem;
-}
-
-/* 買い物かごにホバーエフェクト追加 */
-.cart-link:hover {
-    opacity: 0.85;
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 600px) {
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header .container {
+        /*flex-direction: column;*/
+        gap: 0.5rem;
+    }
+    nav.main-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        display: none; /* JSでトグル制御 */
+    }
+    nav.main-nav.open ul {
+        display: flex;
+    }
     .cart-link {
         padding-left: 0.5rem;
     }
 }
-
-
-/* ヘッダー内の補助的なナビゲーション */
-.header-sub-nav {
-    display: flex;
-    gap: 1rem;
-    flex-shrink: 0;
-    white-space: nowrap;
-}
-
-.header-sub-nav a {
-    font-size: 0.9rem;
-    color: var(--text-color);
-}
-
-
-/* レスポンシブデザイン */
 @media (max-width: 900px) {
     header .container {
         flex-wrap: wrap;
         justify-content: space-between;
     }
-
     .search-form {
-        order: 3;
         margin: 0.5rem 0;
         flex-basis: 100%;
     }
-
     header h1 {
         flex-basis: auto;
         margin-right: auto;
     }
-
     .header-sub-nav {
         flex-basis: auto;
     }
@@ -200,9 +221,14 @@ a:hover {
         gap: 0.5rem;
         font-size: 0.8rem;
     }
-
     .header-sub-nav a {
         padding: 0.25rem;
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 0.5rem;
     }
 }
 
@@ -730,6 +756,7 @@ a:hover {
 
     .genre-sidebar {
         margin-bottom: 1rem;
+        order:3;
     }
 }
 
@@ -765,42 +792,3 @@ footer {
     background-color: #e68a1e;
 }
 
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    /* モバイルメニューボタン */
-    .menu-toggle {
-        display: block;
-        font-size: 1.25rem;
-        background: none;
-        border: none;
-        color: var(--light-text);
-        cursor: pointer;
-    }
-
-    nav.main-nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem 0;
-        display: none; /* JSでトグル制御 */
-    }
-
-    nav.main-nav.open ul {
-        display: flex;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 95%;
-        padding: 0 0.5rem;
-    }
-}
